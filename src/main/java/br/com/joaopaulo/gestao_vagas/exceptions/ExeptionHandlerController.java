@@ -10,19 +10,19 @@ import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 
-@ControllerAdvice //trata a mensagem de erro, ates de chegar ao cliente
+@ControllerAdvice // trata a mensagem de erro, antes de chegar ao cliente
 public class ExeptionHandlerController {
-     
+
      private MessageSource messageSource;
-     
-     public ExeptionHandlerController(MessageSource message) { //não inicializa o messageSource como null
+
+     public ExeptionHandlerController(MessageSource message) { // não inicializa o messageSource como null
           this.messageSource = message;
      }
-    
 
      @ExceptionHandler(MethodArgumentNotValidException.class)
-     public ResponseEntity<List<ErrorMessageDTO>> handleMethodArgumentNotValidException(MethodArgumentNotValidException e) {
-          
+     public ResponseEntity<List<ErrorMessageDTO>> handleMethodArgumentNotValidException(
+               MethodArgumentNotValidException e) {
+
           List<ErrorMessageDTO> dto = new ArrayList<>();
 
           e.getBindingResult().getFieldErrors().forEach(err -> {
