@@ -3,6 +3,7 @@ package br.com.joaopaulo.gestao_vagas.modules.company.entities;
 import java.time.LocalDateTime;
 import java.util.UUID;
 
+import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.validator.constraints.Length;
 
 import jakarta.persistence.Entity;
@@ -38,5 +39,6 @@ public class CompanyEntity {
 
      private String description;
 
+     @CreationTimestamp
      private LocalDateTime createdAt;
 }

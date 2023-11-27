@@ -1,4 +1,4 @@
-package br.com.joaopaulo.gestao_vagas.modules.Controllers;
+package br.com.joaopaulo.gestao_vagas.modules.Candidate.Controllers;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;

@@ -1,4 +1,4 @@
-package br.com.joaopaulo.gestao_vagas.modules.Controllers;
+package br.com.joaopaulo.gestao_vagas.modules.Candidate.Controllers;
 
 import java.util.Optional;
 import java.util.UUID;
