@@ -1,4 +1,4 @@
-package br.com.joaopaulo.gestao_vagas.modules.Candidate.Controllers;
+package br.com.joaopaulo.gestao_vagas.modules.candidate.controllers;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -6,7 +6,8 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-import br.com.joaopaulo.gestao_vagas.modules.Candidate.CandidateEntity;
+
+import br.com.joaopaulo.gestao_vagas.modules.candidate.CandidateEntity;
 import br.com.joaopaulo.gestao_vagas.modules.useCases.CreateCandidateUseCase;
 import jakarta.validation.Valid;
 

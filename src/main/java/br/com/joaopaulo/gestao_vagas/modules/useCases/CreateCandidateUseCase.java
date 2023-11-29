@@ -5,8 +5,8 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import br.com.joaopaulo.gestao_vagas.exceptions.UserFoundException;
-import br.com.joaopaulo.gestao_vagas.modules.Candidate.CandidateEntity;
-import br.com.joaopaulo.gestao_vagas.modules.Candidate.Controllers.CandidateRepoisitory;
+import br.com.joaopaulo.gestao_vagas.modules.candidate.CandidateEntity;
+import br.com.joaopaulo.gestao_vagas.modules.candidate.controllers.CandidateRepoisitory;
 
 @Service
 public class CreateCandidateUseCase {

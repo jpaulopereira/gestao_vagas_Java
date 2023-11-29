@@ -1,4 +1,4 @@
-package br.com.joaopaulo.gestao_vagas.modules.Candidate;
+package br.com.joaopaulo.gestao_vagas.modules.candidate;
 
 import java.time.LocalDateTime;
 import java.util.UUID;
@@ -23,7 +23,7 @@ public class CandidateEntity {
      private String name;
 
      @NotBlank
-     @Pattern(regexp = "\\S+", message = "O campo contem espaço") // verifica se tem espaço
+     @Pattern(regexp = "\\S+", message = "O campo contem espaço")
      private String username;
 
      @Email(message = "O campo email é inválido")
