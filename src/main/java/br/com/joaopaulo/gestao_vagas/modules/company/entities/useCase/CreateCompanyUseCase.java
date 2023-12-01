@@ -23,7 +23,7 @@ public class CreateCompanyUseCase {
                     .ifPresent((user) -> {
                          throw new UserFoundException();
                     });
-
+         
           var password = passwordEncoder.encode(companyEntity.getPassword());
           companyEntity.setPassword(password);
 

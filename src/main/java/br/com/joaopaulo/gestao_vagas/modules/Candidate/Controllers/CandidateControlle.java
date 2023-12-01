@@ -16,7 +16,6 @@ import jakarta.validation.Valid;
 public class CandidateControlle {
 
    @Autowired
-
    private CreateCandidateUseCase createCandidateUseCase;
 
    @PostMapping("/")
