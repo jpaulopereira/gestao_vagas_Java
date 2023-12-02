@@ -1,5 +1,7 @@
 package br.com.joaopaulo.gestao_vagas.modules.company.entities.useCase;
 
+import java.time.Instant;
+import java.time.Duration;
 import javax.naming.AuthenticationException;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -30,9 +32,9 @@ public class AuthCompanyUsecase {
           var company = this.companyRepository.findByUsername(authCompanyDTO.getUsername())
                     .orElseThrow(
                               () -> {
-                                   throw new UsernameNotFoundException("user not found");
+                                   throw new UsernameNotFoundException("username/passsword incorrect");
                               });
-          
+
           var passworMatches = this.passwordEncoder.matches(authCompanyDTO.getPassword(), company.getPassword());
 
           if (!passworMatches) {
@@ -41,7 +43,8 @@ public class AuthCompanyUsecase {
 
           Algorithm algorithm = Algorithm.HMAC256(secretKey);
           var token = JWT.create().withIssuer("javagas")
-          .withSubject(company.getId().toString()).sign(algorithm);
+                    .withExpiresAt(Instant.now().plus(Duration.ofHours(2)))
+                    .withSubject(company.getId().toString()).sign(algorithm);
           return token;
      }
 
