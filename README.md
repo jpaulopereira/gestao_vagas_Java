@@ -1,1 +1,1 @@
-# gestao-vagas
+# gestao-vagas 2.0
