@@ -10,6 +10,10 @@ import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
+import java.time.Duration;
+import java.time.Instant;
+import java.util.Arrays;
+
 @Service
 public class AuthCompany {
 
@@ -33,8 +37,11 @@ public class AuthCompany {
 
         Algorithm algorithm = Algorithm.HMAC256(secretKey);
         var token = JWT.create().withIssuer("javagas")
+                .withExpiresAt(Instant.now().plus(Duration.ofHours(5)))
                 .withSubject(company.getId().toString())
+                .withClaim("roles", Arrays.asList("COMPANY"))
                 .sign(algorithm);
+        System.out.println(token);
         return token;
     }
 }
