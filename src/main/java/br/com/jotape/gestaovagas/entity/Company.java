@@ -23,21 +23,22 @@ public class Company {
     @GeneratedValue(strategy = GenerationType.UUID)
     private UUID id;
 
-    @NotBlank
+    @NotBlank(message = "O campo name não pode estar em branco")
     private String name;
 
-    @Pattern(regexp = "^\\S*$", message = "O campo não deve conter espaço")
+    @Pattern(regexp = "^\\S*$", message = "O campo (Username) não deve conter espaço")
     private String username;
 
-    @Email(message = "O campo deve conter um e-mail válido")
+    @Email(message = "Digite um e-mail válido")
     private String email;
 
-    @Length(min = 5, max = 50, message = "A senha deve conter entre (5) e (50) caracteres")
+    @Length(min = 5, max = 250, message = "A senha deve conter entre (5) e (250) caracteres")
     private String password;
 
     @NotBlank
     private String description;
 
+    @NotBlank
     private String website;
 
     @CreationTimestamp
