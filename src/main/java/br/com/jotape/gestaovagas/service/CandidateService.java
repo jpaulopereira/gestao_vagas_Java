@@ -78,7 +78,7 @@ public class CandidateService {
     public ProfileCandidateResponseDTO dados(UUID idCandidate) {
         var candidate = this.candidateRepository.findById(idCandidate)
                 .orElseThrow(() -> {
-                    throw new UsernameNotFoundException("User not found");
+                    throw new UserFoundException();
                 });
         var candidateDTO = ProfileCandidateResponseDTO.builder()
                 .description(candidate.getDescription())

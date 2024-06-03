@@ -99,4 +99,25 @@ public class CandidateController {
         return this.jobVacancyService.listar(filter);
     }
 
+    @PostMapping("/job/apply")
+    @PreAuthorize("hasRole('CANDIDATE')")
+    @SecurityRequirement(name = "jwt_auth")
+    @Operation(summary = "Inscrição do candidato para um vaga", description = "Realiza inscrição do candidato")
+    @ApiResponses({
+            @ApiResponse(responseCode = "200", content = {
+                    @Content(
+                            array = @ArraySchema(schema = @Schema(implementation = JobVacancy.class))
+                    )
+            })
+    })
+    public ResponseEntity<Object> applyJob(@RequestBody HttpServletRequest request, UUID idJob) {
+        var idCandidate = request.getAttribute("candidate_id");
+        try {
+            var result = this.jobVacancyService.execute(UUID.fromString(idCandidate.toString()), idJob);
+            return ResponseEntity.ok().body(result);
+        }catch (Exception e){
+            return ResponseEntity.badRequest().body(e.getMessage());
+        }
+    }
+
 }
